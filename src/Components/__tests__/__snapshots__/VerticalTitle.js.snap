@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VerticalTitle renders correctly 1`] = `
+<Text
+  style={
+    Object {
+      "color": "#373737",
+      "fontSize": 20,
+      "fontWeight": "bold",
+      "letterSpacing": 1.67,
+      "marginTop": 116,
+      "textAlign": "right",
+      "textShadowColor": "#0000006A",
+      "textShadowOffset": Object {
+        "height": 1,
+        "width": 0,
+      },
+      "textShadowRadius": 2,
+      "transform": Array [
+        Object {
+          "rotate": "-90deg",
+        },
+      ],
+      "width": 250,
+    }
+  }
+>
+  MOBILE DATA USAGE
+</Text>
+`;

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingIndicator renders correctly 1`] = `
+<ActivityIndicator
+  animating={true}
+  color="#999999"
+  hidesWhenStopped={true}
+  size="large"
+  style={Object {}}
+/>
+`;
+
+exports[`LoadingIndicator renders correctly if it's loading 1`] = `
+<ActivityIndicator
+  animating={true}
+  color="#999999"
+  hidesWhenStopped={true}
+  size="large"
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#F5FCFF88",
+      "bottom": 0,
+      "justifyContent": "center",
+      "left": 0,
+      "marginTop": 80,
+      "position": "absolute",
+      "right": 0,
+      "top": 0,
+    }
+  }
+/>
+`;

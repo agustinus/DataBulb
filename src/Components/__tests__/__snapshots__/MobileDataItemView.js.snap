@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MobileDataItemView renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "height": 90,
+      "paddingLeft": 15,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 1,
+        "width": 0,
+      },
+      "shadowOpacity": 0.2,
+      "shadowRadius": 2,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1.5,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontSize": 20,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        2020
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 3.5,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#606060",
+            "fontSize": 12,
+            "fontStyle": "italic",
+            "fontWeight": "normal",
+            "paddingBottom": 8,
+            "textAlign": "right",
+          }
+        }
+      >
+        Total Volume of
+Mobile Data
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 20,
+            "fontWeight": "normal",
+            "textAlign": "right",
+          }
+        }
+      >
+        9.1234567
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "flex-end",
+          "flex": 1,
+          "height": 25,
+          "justifyContent": "center",
+          "paddingRight": 20,
+          "width": 25,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`MobileDataItemView renders correctly if it's showing the icon 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "height": 90,
+      "paddingLeft": 15,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 1,
+        "width": 0,
+      },
+      "shadowOpacity": 0.2,
+      "shadowRadius": 2,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1.5,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontSize": 20,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        2020
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 3.5,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#606060",
+            "fontSize": 12,
+            "fontStyle": "italic",
+            "fontWeight": "normal",
+            "paddingBottom": 8,
+            "textAlign": "right",
+          }
+        }
+      >
+        Total Volume of
+Mobile Data
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 20,
+            "fontWeight": "normal",
+            "textAlign": "right",
+          }
+        }
+      >
+        9.1234567
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      clickable={false}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "flex-end",
+          "flex": 1,
+          "height": 25,
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingRight": 20,
+          "width": 25,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../src/res/images/icon-decreased.png",
+          }
+        }
+        style={
+          Object {
+            "height": 25,
+            "width": 25,
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;

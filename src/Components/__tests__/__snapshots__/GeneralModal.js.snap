@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GeneralModal renders correctly 1`] = `
+<Modal
+  animationType="fade"
+  hardwareAccelerated={false}
+  presentationStyle="overFullScreen"
+  transparent={true}
+  visible={true}
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#000000AA",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "stretch",
+          "backgroundColor": "white",
+          "borderRadius": 8,
+          "flexDirection": "column",
+          "height": 200,
+          "width": 300,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flex": 2,
+            "justifyContent": "space-around",
+            "paddingBottom": 5,
+            "paddingTop": 30,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#444444",
+              "fontSize": 14,
+              "textAlign": "center",
+            }
+          }
+        />
+        <Text
+          style={
+            Object {
+              "color": "#000000",
+              "fontSize": 36,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        />
+      </View>
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "flex": 1,
+            "justifyContent": "center",
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#868686",
+              "fontSize": 20,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          OK
+        </Text>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;
