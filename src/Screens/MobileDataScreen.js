@@ -39,7 +39,7 @@ export class MobileDataScreen extends React.Component {
                 isRefreshing={this.props.isLoading}
                 onEndReached={() => this._loadMore()}
                 onScroll={this._scrolled.bind(this)}
-                onRefresh={() => this.props.fetchMobileDataUsage()}
+                onRefresh={() => this.props.refreshMobileDataUsage()}
               />
             ) : (
               undefined
@@ -173,6 +173,9 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchMobileDataUsage() {
       return dispatch(ActionCreator.fetchMobileDataUsage());
+    },
+    refreshMobileDataUsage() {
+      return dispatch(ActionCreator.refreshMobileDataUsage());
     },
   };
 };

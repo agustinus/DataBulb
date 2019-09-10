@@ -31,6 +31,7 @@ function* fetchMobileDataUsage() {
 
 export function* watchFetchMobileDataUsage() {
   yield takeEvery(ActionType.FETCH_MOBILE_DATA_USAGE, fetchMobileDataUsage);
+  yield takeEvery(ActionType.REFRESH_MOBILE_DATA_USAGE, fetchMobileDataUsage);
 }
 
 // Will be assumed the year will 4 digits at max

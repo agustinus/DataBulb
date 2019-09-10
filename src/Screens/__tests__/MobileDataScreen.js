@@ -12,6 +12,7 @@ describe('MobileDataScreen', () => {
   beforeEach(() => {
     const props = {
       fetchMobileDataUsage: jest.fn(),
+      refreshMobileDataUsage: jest.fn(),
       data: [{year: '2000', total: '0.000123', decreasedQuarter: []}],
     };
     wrapper = shallow(<MobileDataScreen {...props} />);
@@ -44,7 +45,7 @@ describe('MobileDataScreen', () => {
       .find('StandardList')
       .props()
       .onRefresh();
-    expect(instance.props.fetchMobileDataUsage).toHaveBeenCalledTimes(2);
+    expect(instance.props.refreshMobileDataUsage).toHaveBeenCalledTimes(1);
   });
 
   it('should invoke _renderItem() if renderItem is triggered', () => {

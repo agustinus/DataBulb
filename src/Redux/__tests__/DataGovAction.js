@@ -6,4 +6,10 @@ describe('ActionCreator', () => {
       type: ActionType.FETCH_MOBILE_DATA_USAGE,
     });
   });
+
+  it('refreshMobileDataUsage will return the correct action type', () => {
+    expect(ActionCreator.refreshMobileDataUsage()).toMatchObject({
+      type: ActionType.REFRESH_MOBILE_DATA_USAGE,
+    });
+  });
 });

@@ -20,6 +20,10 @@ function Reducer(state = initState, action) {
         isFetching: true,
         error: null,
       };
+    case ActionType.REFRESH_MOBILE_DATA_USAGE:
+      return {
+        ...initState,
+      };
     case ActionType.MOBILE_DATA_USAGE_RECEIVED:
       let endOfPage = action.data.offset + RECORDS_LIMIT >= action.data.total;
       let data = action.data.annualRecords;
