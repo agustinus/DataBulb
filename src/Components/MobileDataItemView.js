@@ -46,6 +46,7 @@ export default class MobileDataItemView extends React.Component {
 
 const styles = StyleSheet.create({
   box: {
+    marginHorizontal: 5,
     backgroundColor: '#ffffff',
     borderRadius: 8,
     height: 90,
@@ -57,6 +58,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.2,
     shadowRadius: 2,
+    elevation: 4,
   },
   contentWrapper: {
     flex: 1,

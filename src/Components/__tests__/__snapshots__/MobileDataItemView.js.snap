@@ -6,7 +6,9 @@ exports[`MobileDataItemView renders correctly 1`] = `
     Object {
       "backgroundColor": "#ffffff",
       "borderRadius": 8,
+      "elevation": 4,
       "height": 90,
+      "marginHorizontal": 5,
       "paddingLeft": 15,
       "shadowColor": "#000000",
       "shadowOffset": Object {
@@ -103,7 +105,9 @@ exports[`MobileDataItemView renders correctly if it's showing the icon 1`] = `
     Object {
       "backgroundColor": "#ffffff",
       "borderRadius": 8,
+      "elevation": 4,
       "height": 90,
+      "marginHorizontal": 5,
       "paddingLeft": 15,
       "shadowColor": "#000000",
       "shadowOffset": Object {
