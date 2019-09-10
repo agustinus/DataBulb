@@ -30,7 +30,7 @@ describe('MobileDataScreen', () => {
     expect(item).toMatchSnapshot();
   });
 
-  it('should invoke _loadMore() if onEndReached triggered', () => {
+  it('should invoke _loadMore() if onEndReached is triggered', () => {
     wrapper.setState({flatListReady: true, isCompleted: false});
     wrapper
       .find('StandardList')
@@ -39,7 +39,15 @@ describe('MobileDataScreen', () => {
     expect(instance.props.fetchMobileDataUsage).toHaveBeenCalledTimes(2);
   });
 
-  it('should invoke _renderItem() if renderItem triggered', () => {
+  it('should invoke fetchMobileDataUsage() if onRefresh is triggered', () => {
+    wrapper
+      .find('StandardList')
+      .props()
+      .onRefresh();
+    expect(instance.props.fetchMobileDataUsage).toHaveBeenCalledTimes(2);
+  });
+
+  it('should invoke _renderItem() if renderItem is triggered', () => {
     const item = wrapper
       .find('StandardList')
       .props()
@@ -137,7 +145,7 @@ describe('MobileDataScreen', () => {
   it('should do nothing when OK button is pressed for http error', () => {
     wrapper.setProps({error: {status: 500}});
     const item = wrapper.find('GeneralModal');
-    console.log('TEST: ', item.debug({verbose: true}));
+    // console.log('TEST: ', item.debug({verbose: true}));
     expect(item.props().onDismiss()).toBeUndefined();
   });
 
