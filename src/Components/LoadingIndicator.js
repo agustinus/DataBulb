@@ -15,7 +15,6 @@ export default class LoadingIndicator extends React.Component {
 
 const styles = StyleSheet.create({
   loadingContainer: {
-    marginTop: 80,
     position: 'absolute',
     left: 0,
     right: 0,
@@ -23,6 +22,5 @@ const styles = StyleSheet.create({
     bottom: 0,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#F5FCFF88',
   },
 });
