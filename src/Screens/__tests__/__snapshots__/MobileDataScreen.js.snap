@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MobileDataScreen renders correctly 1`] = `ShallowWrapper {}`;
+
+exports[`MobileDataScreen should invoke _renderItem() if renderItem triggered 1`] = `
+<MobileDataItemView
+  onIconClicked={[Function]}
+  showIcon={false}
+  total="0.000123"
+  year="2000"
+/>
+`;
+
+exports[`MobileDataScreen should render item correctly 1`] = `
+<MobileDataItemView
+  onIconClicked={[Function]}
+  showIcon={false}
+  total="0.000123"
+  year="2000"
+/>
+`;

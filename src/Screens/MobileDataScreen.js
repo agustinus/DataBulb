@@ -9,7 +9,7 @@ import StandardList from '../Components/StandardList';
 import VerticalTitle from '../Components/VerticalTitle';
 import GeneralModal from '../Components/GeneralModal';
 
-class MobileDataScreen extends React.Component {
+export class MobileDataScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -73,7 +73,6 @@ class MobileDataScreen extends React.Component {
         total={item.total}
         showIcon={item.decreasedQuarter.length > 0}
         onIconClicked={() => {
-          console.log('ITEM: ', item);
           this.setState({modalContent: item});
         }}
       />
