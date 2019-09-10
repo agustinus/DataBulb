@@ -24,10 +24,6 @@ export class MobileDataScreen extends React.Component {
   }
 
   render() {
-    // if (this.props.isLoading || !this.props.data) {
-    //   return <LoadingIndicator isLoading={this.props.isLoading} />;
-    // }
-
     return (
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.screen}>
@@ -49,7 +45,12 @@ export class MobileDataScreen extends React.Component {
             )}
           </View>
         </View>
-        <LoadingIndicator isLoading={this.props.isLoading} />
+        {this.props.error ? this._showError(this.props.error) : undefined}
+        {this.props.isLoading ? (
+          <LoadingIndicator isLoading={this.props.isLoading} />
+        ) : (
+          undefined
+        )}
         {this.state.modalContent ? (
           <GeneralModal
             isVisible={true}
@@ -63,6 +64,24 @@ export class MobileDataScreen extends React.Component {
           undefined
         )}
       </SafeAreaView>
+    );
+  }
+
+  _showError(error) {
+    const isNetworkError =
+      !error.status &&
+      error.message &&
+      error.message === 'Network request failed';
+    return (
+      <GeneralModal
+        isVisible={true}
+        onDismiss={() => {
+          isNetworkError ? this.props.fetchMobileDataUsage() : null;
+        }}
+        title={isNetworkError ? error.message : "Oops, It's error"}
+        content={error.status ? this.props.error.status.toString() : '😢'}
+        buttonText={isNetworkError ? 'REFRESH' : ''}
+      />
     );
   }
 
@@ -102,7 +121,7 @@ export class MobileDataScreen extends React.Component {
   };
 
   _loadMore = () => {
-    if (!this.state.flatListReady || this.props.isCompleted) {
+    if (this.props.isCompleted) {
       return null;
     }
     this.props.fetchMobileDataUsage();

@@ -106,20 +106,44 @@ describe('MobileDataScreen', () => {
   });
 
   it('should call fetchMobileDataUsage (_loadMore) if flatlist is ready and still have next data', () => {
-    wrapper.setState({flatListReady: false, isCompleted: false});
-    expect(instance._loadMore()).toBeNull();
+    wrapper.setProps({isCompleted: true});
+    instance._loadMore();
     expect(instance.props.fetchMobileDataUsage).toHaveBeenCalledTimes(1);
 
-    wrapper.setState({flatListReady: false, isCompleted: true});
-    expect(instance._loadMore()).toBeNull();
-    expect(instance.props.fetchMobileDataUsage).toHaveBeenCalledTimes(1);
-
-    wrapper.setState({flatListReady: true, isCompleted: false});
-    expect(instance._loadMore()).not.toBeNull();
+    wrapper.setProps({isCompleted: false});
+    instance._loadMore();
     expect(instance.props.fetchMobileDataUsage).toHaveBeenCalledTimes(2);
+  });
 
-    wrapper.setState({flatListReady: true, isCompleted: true});
-    expect(instance._loadMore()).not.toBeNull();
-    expect(instance.props.fetchMobileDataUsage).toHaveBeenCalledTimes(3);
+  it('should show error message for Network request failed', () => {
+    wrapper.setProps({error: {message: 'Network request failed'}});
+    const item = wrapper.find('GeneralModal');
+    expect(item).toMatchSnapshot();
+  });
+
+  it('should handle refresh button for Network request failed', () => {
+    wrapper.setProps({error: {message: 'Network request failed'}});
+    const item = wrapper.find('GeneralModal');
+    item.props().onDismiss();
+    expect(instance.props.fetchMobileDataUsage).toHaveBeenCalledTimes(2);
+  });
+
+  it('should show error message for http error', () => {
+    wrapper.setProps({error: {status: 500}});
+    const item = wrapper.find('GeneralModal');
+    expect(item).toMatchSnapshot();
+  });
+
+  it('should do nothing when OK button is pressed for http error', () => {
+    wrapper.setProps({error: {status: 500}});
+    const item = wrapper.find('GeneralModal');
+    console.log('TEST: ', item.debug({verbose: true}));
+    expect(item.props().onDismiss()).toBeUndefined();
+  });
+
+  it('should show loading indicator', () => {
+    expect(wrapper.find('LoadingIndicator').exists()).toBe(false);
+    wrapper.setProps({isLoading: true});
+    expect(wrapper.find('LoadingIndicator').exists()).toBe(true);
   });
 });

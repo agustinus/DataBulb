@@ -1,6 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MobileDataScreen renders correctly 1`] = `ShallowWrapper {}`;
+exports[`MobileDataScreen renders correctly 1`] = `
+<SafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "stretch",
+        "flex": 1,
+        "flexDirection": "row",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "flex-start",
+        }
+      }
+    >
+      <VerticalTitle />
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 8,
+        }
+      }
+    >
+      <StandardList
+        data={
+          Array [
+            Object {
+              "decreasedQuarter": Array [],
+              "total": "0.000123",
+              "year": "2000",
+            },
+          ]
+        }
+        isRefreshing={false}
+        onEndReached={[Function]}
+        onScroll={[Function]}
+        renderItem={[Function]}
+        style={
+          Object {
+            "flex": 8,
+            "paddingLeft": 8,
+            "paddingRight": 15,
+            "paddingTop": 5,
+          }
+        }
+      />
+    </View>
+  </View>
+</SafeAreaView>
+`;
 
 exports[`MobileDataScreen should invoke _renderItem() if renderItem triggered 1`] = `
 <MobileDataItemView
@@ -17,5 +80,25 @@ exports[`MobileDataScreen should render item correctly 1`] = `
   showIcon={false}
   total="0.000123"
   year="2000"
+/>
+`;
+
+exports[`MobileDataScreen should show error message for Network request failed 1`] = `
+<GeneralModal
+  buttonText="REFRESH"
+  content="😢"
+  isVisible={true}
+  onDismiss={[Function]}
+  title="Network request failed"
+/>
+`;
+
+exports[`MobileDataScreen should show error message for http error 1`] = `
+<GeneralModal
+  buttonText=""
+  content="500"
+  isVisible={true}
+  onDismiss={[Function]}
+  title="Oops, It's error"
 />
 `;
