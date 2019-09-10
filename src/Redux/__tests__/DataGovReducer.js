@@ -159,4 +159,37 @@ describe('DataGovReducer for ActionType.MOBILE_DATA_USAGE_RECEIVED', () => {
       isCompleted: true,
     });
   });
+
+  it('should push the error to the store when MOBILE_DATA_USAGE_RECEIVED action is dispatched', () => {
+    const action = {
+      type: ActionType.MOBILE_DATA_USAGE_ERROR,
+      error: {status: 500},
+    };
+
+    const state = {
+      ...initState,
+      data: [
+        {
+          year: '2018',
+          total: '0.000001',
+          decreasedQuarter: [],
+          quarterly: [0.0000002, 0.0000002, 0.0000003, 0.0000003],
+        },
+      ],
+    };
+
+    expect(Reducer(state, action)).toEqual({
+      ...state,
+      isFetching: false,
+      data: [
+        {
+          year: '2018',
+          total: '0.000001',
+          decreasedQuarter: [],
+          quarterly: [0.0000002, 0.0000002, 0.0000003, 0.0000003],
+        },
+      ],
+      error: {status: 500},
+    });
+  });
 });

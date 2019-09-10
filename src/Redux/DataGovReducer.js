@@ -18,6 +18,7 @@ function Reducer(state = initState, action) {
       return {
         ...state,
         isFetching: true,
+        error: null,
       };
     case ActionType.MOBILE_DATA_USAGE_RECEIVED:
       let endOfPage = action.data.offset + RECORDS_LIMIT >= action.data.total;
@@ -33,6 +34,12 @@ function Reducer(state = initState, action) {
         nextOffset: state.nextOffset + RECORDS_LIMIT,
         uncompletedYear: action.data.uncompletedYear,
         isCompleted: endOfPage,
+      };
+    case ActionType.MOBILE_DATA_USAGE_ERROR:
+      return {
+        ...state,
+        isFetching: false,
+        error: action.error,
       };
     default:
       return state;

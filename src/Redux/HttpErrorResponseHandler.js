@@ -8,9 +8,9 @@ const _console = {
   log: function(message, obj) {
     Config.logReduxState && console.info(message, obj);
   },
-  warn: function(message, obj) {
-    Config.logReduxState && console.warn(message, obj);
-  },
+  // warn: function(message, obj) {
+  //   Config.logReduxState && console.warn(message, obj);
+  // },
 };
 
 /**
@@ -23,13 +23,14 @@ const httpResponseErrorHandler = store => next => action => {
   if (action.error) {
     if (action.error.status) {
       switch (action.error.status) {
+        // To handle each status in different way, put the handle here
         case 400:
-          break;
         case 401:
-          break;
         case 500:
+          result = Promise.reject(next(action).error);
           break;
         default:
+          result = Promise.reject(next(action).error);
           break;
       }
     } else if (action.error.message === 'Network request failed') {
