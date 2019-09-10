@@ -1,4 +1,7 @@
 import DataGovSaga from '../DataGovSaga';
+import DataGovService from '../../Domain/DataGovService';
+import {call, put} from 'redux-saga/effects';
+import {ActionType} from '../DataGovAction';
 
 describe('DataGovSaga', () => {
   describe('getAnnualData() function', () => {
@@ -58,10 +61,8 @@ describe('DataGovSaga', () => {
       let data = buildTestData.mobileDataUsage(2000, 1, 0, 6, 8);
       data.records[0].volume_of_mobile_data = 0.000007;
       data.records[3].volume_of_mobile_data = 0.000006;
-      console.log('TEST0: ', data);
 
       let result = DataGovSaga.__private__.getAnnualData(data.records);
-      console.log('RESP0: ', result.uncompletedYear);
 
       expect(result).toEqual({
         data: [
@@ -81,6 +82,45 @@ describe('DataGovSaga', () => {
           },
         ],
       });
+    });
+  });
+
+  describe('fetchMobileDataUsage() function', () => {
+    it('should yield all the Effects)', () => {
+      const iterator = DataGovSaga.__private__.fetchMobileDataUsage();
+      // console.log('TEST: ', iterator.next().value);
+      // console.log('TEST: ', iterator.next({result: {records: []}}).value);
+      // console.log('TEST: ', iterator.next({data: []}).value);
+      expect(iterator.next().value).toEqual(
+        call(DataGovService.fetchMobileDataUsage, 0),
+      );
+      expect(iterator.next({result: {records: []}}).value).toEqual(
+        call(DataGovSaga.__private__.getAnnualData, [], null),
+      );
+      expect(iterator.next({data: []}).value).toEqual(
+        put({
+          type: ActionType.MOBILE_DATA_USAGE_RECEIVED,
+          data: {
+            annualRecords: [],
+            offset: undefined,
+            total: undefined,
+            uncompletedYear: undefined,
+          },
+        }),
+      );
+    });
+
+    it('should catch the error)', () => {
+      const iterator = DataGovSaga.__private__.fetchMobileDataUsage();
+
+      expect(iterator.next().value).toEqual(
+        call(DataGovService.fetchMobileDataUsage, 0),
+      );
+
+      const error = {};
+      expect(iterator.throw(error).value).toEqual(
+        put({type: ActionType.MOBILE_DATA_USAGE_ERROR, error}),
+      );
     });
   });
 });
