@@ -89,6 +89,7 @@ exports[`GeneralModal renders correctly 1`] = `
               "textAlign": "center",
             }
           }
+          testID="testIDButtonText"
         >
           OK
         </Text>
@@ -96,4 +97,36 @@ exports[`GeneralModal renders correctly 1`] = `
     </View>
   </View>
 </Modal>
+`;
+
+exports[`GeneralModal should show button text OK if no buttonText props set 1`] = `
+<Text
+  style={
+    Object {
+      "color": "#868686",
+      "fontSize": 20,
+      "fontWeight": "bold",
+      "textAlign": "center",
+    }
+  }
+  testID="testIDButtonText"
+>
+  OK
+</Text>
+`;
+
+exports[`GeneralModal should show button text from set props 1`] = `
+<Text
+  style={
+    Object {
+      "color": "#868686",
+      "fontSize": 20,
+      "fontWeight": "bold",
+      "textAlign": "center",
+    }
+  }
+  testID="testIDButtonText"
+>
+  This new button text
+</Text>
 `;

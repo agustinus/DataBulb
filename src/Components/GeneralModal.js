@@ -13,6 +13,7 @@ export default class GeneralModal extends Component {
   static propTypes = {
     title: PropTypes.string,
     content: PropTypes.string,
+    buttonText: PropTypes.string,
     onDismiss: PropTypes.func,
   };
 
@@ -22,8 +23,7 @@ export default class GeneralModal extends Component {
         animationType="fade"
         transparent={true}
         visible={this.state.modalVisible}
-        presentationStyle="overFullScreen"
-        onDismiss={this.props.onDismiss}>
+        presentationStyle="overFullScreen">
         <View style={styles.background}>
           <View style={styles.alertDialog}>
             <View style={styles.contentWrapper}>
@@ -33,7 +33,9 @@ export default class GeneralModal extends Component {
             <TouchableOpacity
               style={styles.buttonWrapper}
               onPress={() => this._setModalVisible(!this.state.modalVisible)}>
-              <Text style={styles.buttonText}>OK</Text>
+              <Text style={styles.buttonText} testID={'testIDButtonText'}>
+                {this.props.buttonText ? this.props.buttonText : 'OK'}
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -43,6 +45,9 @@ export default class GeneralModal extends Component {
 
   _setModalVisible(visible) {
     this.setState({modalVisible: visible});
+    if (!visible) {
+      this.props.onDismiss();
+    }
   }
 }
 
