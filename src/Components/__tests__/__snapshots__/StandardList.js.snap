@@ -14,6 +14,11 @@ exports[`StandardList function: itemSeparator renders the correct style 1`] = `
 exports[`StandardList renders correctly 1`] = `
 <RCTScrollView
   ItemSeparatorComponent={[Function]}
+  contentContainerStyle={
+    Object {
+      "paddingBottom": 15,
+    }
+  }
   data={
     Array [
       Object {

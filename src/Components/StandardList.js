@@ -44,6 +44,7 @@ export default class StandardList extends React.PureComponent {
         onEndReached={this.props.onEndReached}
         onEndReachedThreshold={0.3}
         onScroll={this.props.onScroll}
+        contentContainerStyle={styles.contentContainer}
       />
     );
   }
@@ -54,11 +55,7 @@ const styles = StyleSheet.create({
     height: 10,
     width: '100%',
   },
-  textBox: {
-    backgroundColor: 'black',
-    color: 'white',
-    width: 40,
-    textAlign: 'center',
-    fontWeight: 'bold',
+  contentContainer: {
+    paddingBottom: 15,
   },
 });
